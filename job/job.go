@@ -14,10 +14,10 @@ import (
 	"sync"
 	"text/template"
 
-	"github.com/falling-sky/builder/config"
-	"github.com/falling-sky/builder/fileutil"
-	"github.com/falling-sky/builder/gitinfo"
-	"github.com/falling-sky/builder/po"
+	"github.com/falling-sky/fsbuilder/config"
+	"github.com/falling-sky/fsbuilder/fileutil"
+	"github.com/falling-sky/fsbuilder/gitinfo"
+	"github.com/falling-sky/fsbuilder/po"
 )
 
 // rePROCESS matches on   [% PROCESS "filename" %]

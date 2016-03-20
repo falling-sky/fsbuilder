@@ -7,12 +7,12 @@ import (
 	"os"
 	"strings"
 
-	"github.com/falling-sky/builder/config"
-	"github.com/falling-sky/builder/fileutil"
-	"github.com/falling-sky/builder/gitinfo"
-	"github.com/falling-sky/builder/job"
-	"github.com/falling-sky/builder/po"
-	"github.com/falling-sky/builder/signature"
+	"github.com/falling-sky/fsbuilder/config"
+	"github.com/falling-sky/fsbuilder/fileutil"
+	"github.com/falling-sky/fsbuilder/gitinfo"
+	"github.com/falling-sky/fsbuilder/job"
+	"github.com/falling-sky/fsbuilder/po"
+	"github.com/falling-sky/fsbuilder/signature"
 )
 
 var configFileName = flag.String("config", "", "config file location (see --example)")

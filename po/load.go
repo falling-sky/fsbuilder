@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/falling-sky/builder/fileutil"
+	"github.com/falling-sky/fsbuilder/fileutil"
 )
 
 const NOTUSED = "not-used, archived.  Not currently needed for translation."

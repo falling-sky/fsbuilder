@@ -7,7 +7,7 @@ import (
 	"log"
 	"path/filepath"
 
-	"github.com/falling-sky/builder/fileutil"
+	"github.com/falling-sky/fsbuilder/fileutil"
 )
 
 func ScanDir(directory string, otherstuff ...string) string {

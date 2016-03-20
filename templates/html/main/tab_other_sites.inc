@@ -1,1 +1,0 @@
-[% PROCESS "inc/sites.inc" %]

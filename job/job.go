@@ -395,9 +395,7 @@ func StartQueue(maxjobs int) *QueueTracker {
 
 	if maxjobs == 0 {
 		maxjobs = runtime.NumCPU()
-		maxjobs = 1
 	}
-	//maxjobs = 1
 	for i := 0; i < maxjobs; i++ {
 		go qt.RunQueue()
 	}

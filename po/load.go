@@ -112,8 +112,9 @@ func Load(fn string) (*File, error) {
 			return nil, fmt.Errorf("File %v missing Language: header", fn)
 		}
 	}
-	f.Language = Friendly(f.Locale)
-
+	if f.Locale != "" {
+		f.Language = Friendly(f.Locale)
+	}
 	//log.Printf("%#v\n", f)
 
 	return f, nil

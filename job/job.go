@@ -338,7 +338,7 @@ func ProcessContent(qi *QueueItem, content string) {
 // and writes files for that single file for a single language.  These are spoon-fed
 // by RunQueue.
 func RunJob(qi *QueueItem) {
-	log.Printf("RunJob Filename=%s PoLang=%s\n", qi.Filename, qi.PoFile.Language)
+	// log.Printf("RunJob Filename=%s PoLang=%s\n", qi.Filename, qi.PoFile.Language)
 	readFilename := qi.RootDir + "/" + qi.Filename
 
 	var content string
@@ -382,7 +382,7 @@ func (qt *QueueTracker) Add(qi *QueueItem) {
 
 // Wait will wait for all existing jobs to finish.
 func (qt *QueueTracker) Wait() {
-	log.Printf("WAITING\n")
+	log.Printf("Waiting for queued jobs to finish\n")
 	qt.WG.Wait()
 }
 

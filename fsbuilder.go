@@ -103,12 +103,13 @@ func main() {
 	// Start the job queue for templates
 	jobTracker := job.StartQueue(conf.Options.MaxThreads)
 
-	// Load all langauges, calculate all percentages of completion.
+	// Load all languages, calculate all percentages of completion.
 	languages, err := po.LoadAll(conf.Directories.PoDir+"/falling-sky.pot", conf.Directories.PoDir+"/dl")
 	if err != nil {
 		log.Fatal(err)
 	}
-	languages.Pot.Language = "en_US"
+	languages.Pot.Locale = "en_US"
+	languages.Pot.Language = "English"
 
 	// Grab this just once.
 	cachedGitInfo := gitinfo.GetGitInfo()

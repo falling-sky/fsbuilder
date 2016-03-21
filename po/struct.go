@@ -21,6 +21,7 @@ type File struct {
 	InOrder           []string
 	Headers           MapHeaders
 	Language          string
+	Locale            string
 	Translated        int
 	OutOf             int
 	PercentTranslated string

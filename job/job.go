@@ -214,8 +214,8 @@ func ProcessContentFancy(qi *QueueItem, content string) {
 	macros["NAME"] = basename
 	macros["NAMEGZ"] = macros["NAME"] + ".gz"
 	if qi.PostInfo.MultiLocale == true {
-		macros["NAME"] = macros["NAME"] + "." + qi.PoFile.Language
-		macros["NAMEGZ"] = macros["NAMEGZ"] + "." + qi.PoFile.Language
+		macros["NAME"] = macros["NAME"] + "." + qi.PoFile.Locale
+		macros["NAMEGZ"] = macros["NAMEGZ"] + "." + qi.PoFile.Locale
 	}
 	macros["INPUT"] = macros["NAME"] + ".orig"
 	macros["OUTPUT"] = macros["NAME"]
@@ -295,8 +295,8 @@ func ProcessContent(qi *QueueItem, content string) {
 	uncompressed := qi.Config.Directories.OutputDir + "/" + basename
 	compressed := qi.Config.Directories.OutputDir + "/" + basename + ".gz"
 	if qi.PostInfo.MultiLocale == true {
-		uncompressed = uncompressed + "." + qi.PoFile.Language
-		compressed = compressed + "." + qi.PoFile.Language
+		uncompressed = uncompressed + "." + qi.PoFile.Locale
+		compressed = compressed + "." + qi.PoFile.Locale
 	}
 
 	// Make sure the directory exists.

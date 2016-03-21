@@ -106,12 +106,13 @@ func Load(fn string) (*File, error) {
 	if err != nil {
 		return nil, fmt.Errorf("File %s parsing header: %s", fn, err)
 	}
-	f.Language = f.Headers["Language"]
-	if f.Language == "" {
+	f.Locale = f.Headers["Language"]
+	if f.Locale == "" {
 		if strings.HasSuffix(fn, ".pot") == false {
 			return nil, fmt.Errorf("File %v missing Language: header", fn)
 		}
 	}
+	f.Language = Friendly(f.Locale)
 
 	//log.Printf("%#v\n", f)
 
@@ -175,7 +176,7 @@ func LoadAll(potfn string, root string) (*Files, error) {
 				p.PercentTranslated = fmt.Sprintf("%0.2f", percent) + "%"
 			}
 
-			combined.ByLanguage[p.Language] = p
+			combined.ByLanguage[p.Locale] = p
 
 		}
 

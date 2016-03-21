@@ -41,22 +41,29 @@ func (combined *Files) Languages() []string {
 
 // GetLocale simply returns the locale name; ie en_US or pt_BR
 func (f *File) GetLocale() string {
-	s := f.Language
+	s := f.Locale
 	return s
 }
 
 // GetLang returns the lowercase name string; ie en or pt
 func (f *File) GetLang() string {
-	s := f.Language
+	s := f.Locale
 	p := strings.Split(s, "_")
 	return p[0]
 }
 
 // GetLangUC  returns the uppercase name string; ie EN or PT
 func (f *File) GetLangUC() string {
-	s := f.Language
+	s := f.Locale
 	p := strings.Split(s, "_")
 	return strings.ToUpper(p[0])
+}
+
+// GetLang returns the lowercase name string; ie en or pt
+func (f *File) GetLangName() string {
+	s := f.Language
+	s = Friendly(s)
+	return s
 }
 
 // Translate takes a given input text, and returns back
@@ -76,6 +83,9 @@ func (f *File) Translate(input string, escapequotes bool) string {
 	}
 	if input == "locale" {
 		return f.GetLocale()
+	}
+	if input == "langname" {
+		return f.GetLangName()
 	}
 
 	newtext := input

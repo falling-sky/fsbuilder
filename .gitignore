@@ -32,3 +32,11 @@ samples
 
 # Binaries
 builder
+fsbuilder
+
+# Test inputs
+images/
+output/
+templates/
+translations/
+transparent/

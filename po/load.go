@@ -170,6 +170,11 @@ func LoadAll(potfn string, root string) (*Files, error) {
 
 			}
 
+			if p.OutOf > 0 {
+				percent := 100.0 * float64(p.Translated) / float64(p.OutOf)
+				p.PercentTranslated = fmt.Sprintf("%0.2f", percent) + "%"
+			}
+
 			combined.ByLanguage[p.Language] = p
 
 		}

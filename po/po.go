@@ -66,6 +66,12 @@ func (f *File) GetLangName() string {
 	return s
 }
 
+// GetLangPercentTranslated returns what percentage of the translation is done
+func (f *File) GetLangPercentTranslated() string {
+	s := f.PercentTranslated
+	return s
+}
+
 // Translate takes a given input text, and returns back
 // either the translated text, or the original text again.
 func (f *File) Translate(input string, escapequotes bool) string {
@@ -86,6 +92,9 @@ func (f *File) Translate(input string, escapequotes bool) string {
 	}
 	if input == "langname" {
 		return f.GetLangName()
+	}
+	if input == "percenttranslated" {
+		return f.GetLangPercentTranslated()
 	}
 
 	newtext := input

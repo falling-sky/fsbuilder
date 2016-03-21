@@ -10,7 +10,7 @@ import (
 func Friendly(code string) string {
 	l, e := language.Parse(code)
 	if e != nil {
-		log.Fatal("Asked for friendly name for '%s', got error %v\n", code, e)
+		log.Fatalf("Asked for friendly name for '%s', got error %v\n", code, e)
 	}
 	s := display.Self.Name(l)
 	return s

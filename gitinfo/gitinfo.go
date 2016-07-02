@@ -20,14 +20,14 @@ type GitInfo struct {
 
 // GetGitInfo will gather all the git related information
 // and return a single object containing the details.
-func GetGitInfo() *GitInfo {
+func GetGitInfo(baseVersion string) *GitInfo {
 	gi := &GitInfo{}
 	gi.RevisionCount = GitRevisionCount()
-	gi.ProjectVersion = GitProjectVersion()
-	gi.Version = GitVersion()
+	gi.ProjectVersion =  baseVersion 
+	gi.Hash = GitHash()
+	gi.Version = GitVersion(baseVersion)
 	gi.Date = GitDate()
 	gi.Repository = GitRepository()
-	gi.Hash = GitHash()
 	return gi
 }
 
@@ -55,6 +55,7 @@ func GitHash() string {
 
 }
 
+/*
 // GitProjectVersion gets the latest git tag.
 func GitProjectVersion() string {
 	cmd := exec.Command("git", "describe", "--tags", "--long")
@@ -66,12 +67,11 @@ func GitProjectVersion() string {
 	s := strings.TrimSpace(string(b))
 	return s
 }
+*/
 
 // GitVersion combines GitProjectVersion with GitRevisionCount
-func GitVersion() string {
-	s := GitProjectVersion()
-	parts := strings.Split(s, "-")
-	version := fmt.Sprintf("%v.%v", parts[0], GitRevisionCount())
+func GitVersion(baseVersion string) string {
+	version := fmt.Sprintf("%v.%v", baseVersion, GitRevisionCount())
 	return version
 }
 

@@ -17,6 +17,7 @@ import (
 
 var configFileName = flag.String("config", "", "config file location (see --example)")
 var configHelp = flag.Bool("example", false, "Dump a configuration example to the screen.")
+var versionBase = flag.String("versionbase","0.9","first part of version number (remainder will be based on git log)")
 
 func prepOutput(dir string) {
 	log.Printf("Prepping %s\n", dir)
@@ -111,7 +112,7 @@ func main() {
 	languages.Pot.Language = "en_US"
 
 	// Grab this just once.
-	cachedGitInfo := gitinfo.GetGitInfo()
+	cachedGitInfo := gitinfo.GetGitInfo(*versionBase)
 
 	for _, tt := range postTable {
 		inputDir := conf.Directories.TemplateDir + "/" + tt.Directory

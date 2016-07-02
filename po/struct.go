@@ -17,13 +17,15 @@ type MapHeaders map[string]string
 
 // File contains the map of strings for this translation.
 type File struct {
-	ByID       MapStringRecord
-	InOrder    []string
-	Headers    MapHeaders
-	Language   string
-	Translated int
-	OutOf      int
-	lock       sync.Mutex
+	ByID              MapStringRecord
+	InOrder           []string
+	Headers           MapHeaders
+	Language          string
+	Locale            string
+	Translated        int
+	OutOf             int
+	PercentTranslated string
+	lock              sync.Mutex
 }
 
 // MapStringFile is a map of loaded translation files

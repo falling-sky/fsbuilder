@@ -46,17 +46,24 @@ Content-Transfer-Encoding: 8bit
 	// Start new output buffer
 	b := &bytes.Buffer{}
 
+	// Seen cached
+	seen := make(map[string]bool)
+
 	// Prepend "" into the order
 	f.InOrder = append([]string{""}, f.InOrder...)
 
 	for _, str := range f.InOrder {
-		r := f.ByID[str]
-		if r.Comment != "" {
-			PoQuote(b, "#:", r.Comment)
+		if _, ok := seen[str]; ok == false {
+			seen[str] = true
+			r := f.ByID[str]
+			if r.Comment != "" {
+				PoQuote(b, "#:", r.Comment)
+			}
+			PoQuote(b, "msgid", r.MsgID)
+			PoQuote(b, "msgstr", r.MsgStr)
+			b.WriteString("\n")
 		}
-		PoQuote(b, "msgid", r.MsgID)
-		PoQuote(b, "msgstr", r.MsgStr)
-		b.WriteString("\n")
+
 	}
 	err := ioutil.WriteFile(fn, b.Bytes(), 0644)
 	return err

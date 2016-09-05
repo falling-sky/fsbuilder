@@ -48,7 +48,7 @@ func main() {
 	}
 
 	prepOutput(conf.Directories.OutputDir)
-	prepOutput(conf.Directories.OutputDir + "htrev")
+	prepOutput(conf.Directories.OutputDir + "/htrev")
 
 	var postTable = []job.PostInfoType{
 		{

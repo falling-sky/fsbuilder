@@ -170,7 +170,7 @@ func main() {
 	// Copy images
 	fileutil.CopyFiles(conf.Directories.ImagesDir, conf.Directories.OutputDir+"/images")
 	fileutil.CopyFiles(conf.Directories.ImagesDir, conf.Directories.OutputDir+"/images-nc")
-	fileutil.CopyFilesAll(conf.Directories.TransparentDir, conf.Directories.OutputDir+"/transparent")
+	//fileutil.CopyFilesAll(conf.Directories.TransparentDir, conf.Directories.OutputDir+"/transparent")
 
 	// A couple last minute symlinks
 	os.Symlink(".", conf.Directories.OutputDir+"/isp")

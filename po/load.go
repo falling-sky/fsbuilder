@@ -24,7 +24,7 @@ func parseChunk(chunk string) (*Record, error) {
 			continue // Last chunk may have this empty line.
 		}
 		remainder := line
-		//log.Printf("line:'%v'\n", line)
+		// log.Printf("line:'%v'\n", line)
 		if line[0:1] != "\"" {
 			parts := strings.SplitN(line, " ", 2)
 			token = parts[0]
@@ -58,13 +58,13 @@ func parseHeaders(s string) (MapHeaders, error) {
 	headerLines := strings.Split(s, "\n")
 	h := make(MapHeaders)
 	for _, line := range headerLines {
-		//log.Printf("header line='%s'\n", line)
+		// log.Printf("header line='%s'\n", line)
 		parts := strings.SplitN(line, ":", 2)
 		if len(parts) == 2 {
 			h[strings.TrimSpace(parts[0])] = strings.TrimSpace(parts[1])
 		}
 	}
-	//log.Printf("Parsed Headers: %#v", h)
+	// log.Printf("Parsed Headers: %#v", h)
 	return h, nil
 }
 
@@ -91,7 +91,7 @@ func Load(fn string) (*File, error) {
 			return nil, fmt.Errorf("Parsing chunk from %s: %s", fn, err)
 		}
 		if record.MsgStr != "" || record.MsgID != "" {
-			//log.Printf("Parsed Chunk: %#v\n", record)
+			// log.Printf("Parsed Chunk: %#v\n", record)
 			f.ByID[record.MsgID] = record
 			f.InOrder = append(f.InOrder, record.MsgID)
 		}
@@ -115,7 +115,7 @@ func Load(fn string) (*File, error) {
 	if f.Locale != "" {
 		f.Language = Friendly(f.Locale)
 	}
-	//log.Printf("%#v\n", f)
+	// log.Printf("%#v\n", f)
 
 	return f, nil
 }

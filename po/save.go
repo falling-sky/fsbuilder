@@ -53,6 +53,10 @@ Content-Transfer-Encoding: 8bit
 	f.InOrder = append([]string{""}, f.InOrder...)
 
 	for _, str := range f.InOrder {
+		if f.ByID[str].Comment == NOTUSED {
+			continue
+		}
+
 		if _, ok := seen[str]; ok == false {
 			seen[str] = true
 			r := f.ByID[str]

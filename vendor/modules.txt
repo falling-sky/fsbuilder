@@ -1,0 +1,14 @@
+# github.com/fabdem/go-crowdinv2 v1.0.2
+## explicit; go 1.17
+github.com/fabdem/go-crowdinv2
+# github.com/mreiferson/go-httpclient v0.0.0-20201222173833-5e475fde3a4d
+## explicit
+github.com/mreiferson/go-httpclient
+# golang.org/x/text v0.14.0
+## explicit; go 1.18
+golang.org/x/text/internal/format
+golang.org/x/text/internal/language
+golang.org/x/text/internal/language/compact
+golang.org/x/text/internal/tag
+golang.org/x/text/language
+golang.org/x/text/language/display

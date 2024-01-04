@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/falling-sky/fsbuilder/crowdinio"
 	"log"
 	"os"
 	"strings"
@@ -17,6 +18,9 @@ import (
 
 var configFileName = flag.String("config", "", "config file location (see --example)")
 var configHelp = flag.Bool("example", false, "Dump a configuration example to the screen.")
+
+var updateFlag = flag.String("update", "", "crowdin: filename to update then exit; file must pre-exist on crowdin (ie: falling-sky.pot)")
+var downloadFlag = flag.String("download", "", "crowdin: filename to download then exit (ie: all.zip)")
 
 func prepOutput(dir string) {
 	log.Printf("Prepping %s\n", dir)
@@ -45,6 +49,13 @@ func main() {
 	conf, err := config.Load(*configFileName)
 	if err != nil {
 		log.Fatal(err)
+	}
+
+	switch {
+	case *updateFlag != "":
+		crowdinio.UploadAndExit(*updateFlag)
+	case *downloadFlag != "":
+		crowdinio.DownloadAndExit(*downloadFlag)
 	}
 
 	prepOutput(conf.Directories.OutputDir)
@@ -104,7 +115,7 @@ func main() {
 	// Start the job queue for templates
 	jobTracker := job.StartQueue(conf.Options.MaxThreads)
 
-	// Load all languages, calculate all percentages of completion.
+	// load all languages, calculate all percentages of completion.
 	languages, err := po.LoadAll(conf.Directories.PoDir+"/falling-sky.pot", conf.Directories.PoDir+"/dl")
 	if err != nil {
 		log.Fatal(err)

@@ -62,32 +62,32 @@ func (r *Record) Defaults() {
 
 	if len(r.Processors.JS) == 0 {
 		r.Processors.JS = []string{
-		//			`uglifyjs2  [NAME].orig -o [NAME] -c --warnings=false   --source-map [NAME].map   --stats`,
-		//			`mv [NAME].orig [NAME]`,
-		//			`gzip -f -9 -Sgz  < [NAME]  > [NAMEGZ]`,
+			//			`uglifyjs2  [NAME].orig -o [NAME] -c --warnings=false   --source-map [NAME].map   --stats`,
+			//			`mv [NAME].orig [NAME]`,
+			//			`gzip -f -9 -Sgz  < [NAME]  > [NAMEGZ]`,
 		}
 	}
 	if len(r.Processors.CSS) == 0 {
 		r.Processors.CSS = []string{
-		//			`cssmin < [NAME].orig > [NAME]`,
-		//			`mv [NAME].orig [NAME]`,
-		//			`gzip -f -9 -Sgz  < [NAME]  > [NAMEGZ]`,
+			//			`cssmin < [NAME].orig > [NAME]`,
+			//			`mv [NAME].orig [NAME]`,
+			//			`gzip -f -9 -Sgz  < [NAME]  > [NAMEGZ]`,
 		}
 	}
 	if len(r.Processors.HTML) == 0 {
 		r.Processors.HTML = []string{
-		//		`tidy -quiet -indent -asxhtml -utf8 -w 120 --show-warnings false < [NAME].orig > [NAME]`,
-		//		`sed < [NAME] 's#/index.js#/index.js.gz#' | gzip -f -9 -Sgz  > [NAMEGZ]`,
+			//		`tidy -quiet -indent -asxhtml -utf8 -w 120 --show-warnings false < [NAME].orig > [NAME]`,
+			//		`sed < [NAME] 's#/index.js#/index.js.gz#' | gzip -f -9 -Sgz  > [NAMEGZ]`,
 		}
 	}
 	if len(r.Processors.PHP) == 0 {
 		r.Processors.PHP = []string{
-		//			`mv [NAME].orig [NAME]`,
+			//			`mv [NAME].orig [NAME]`,
 		}
 	}
 	if len(r.Processors.Apache) == 0 {
 		r.Processors.Apache = []string{
-		//			`mv [NAME].orig [NAME]`,
+			//			`mv [NAME].orig [NAME]`,
 		}
 	}
 

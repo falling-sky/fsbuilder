@@ -18,7 +18,7 @@ func copyHelper(source string, dest string, fn func(string) ([]string, error)) {
 		if strings.HasSuffix(f, "~") {
 			continue // Skip editor backups
 		}
-//		log.Printf("copy %s/%s to %s/%s\n", source, f, dest, f)
+		//		log.Printf("copy %s/%s to %s/%s\n", source, f, dest, f)
 
 		// Read the file.
 		b, e := ioutil.ReadFile(source + "/" + f)
